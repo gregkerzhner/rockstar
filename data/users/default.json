@@ -1,0 +1,13 @@
+[
+  {
+    "login": "angular",
+    "id": 139426,
+    "avatar_url": "https://gravatar.com/avatar/f0d91e5cf8ad1ce7972cc486baa20c42?d=https%3A%2F%2Fidenticons.github.com%2Ff3377e1ac5fdd9183c13129960faedd7.png&r=x",
+    "url": "/api/users/angular",
+    "html_url": "https://github.com/angular",
+    "repos_url": "/api/users/angular/repos",
+    "public_repos": 43,
+    "type": "Organization",
+    "site_admin": false
+  }
+]

@@ -1,0 +1,15 @@
+  <!DOCTYPE html>
+<html ng-app="rockstar">
+<head>
+  <title>Workshop Seed</title>
+  <% styles.forEach( function ( file ) { %>
+  <link rel="stylesheet" type="text/css" href="<%= file %>"/>
+  <% }); %>
+</head>
+<body ui-view>
+
+</body>
+<% scripts.forEach( function ( file ) { %>
+<script type="text/javascript" src="<%= file %>"></script>
+<% }); %>
+</html>
