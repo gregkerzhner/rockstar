@@ -7,6 +7,6 @@ module.exports = {
   db: 'mongodb://localhost/rockstar',
   dbName: "rockstar",
   facebook_app_id: "519333474845659",
-  facebook_app_secret: "",
-  oauth_callback: ""
+  facebook_app_secret: "250aa81af804565c1e22e9c016af01cf",
+  oauth_callback: "http://localhost:3444/auth/facebook/callback"
 };

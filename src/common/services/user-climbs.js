@@ -6,7 +6,9 @@ angular.module('rockstar.common.services.user-climbs', [
     userClimbs.climbs = [];
     userClimbs.fetch = function(){
       return $http.get('/user-climbs').then(function(result){
-        debugger;
+        for(var i = 0; i<result.data.climbs.length; i++){
+          userClimbs.climbs.push(result.data.climbs[i])
+        }
       })
     }
   })

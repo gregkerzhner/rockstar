@@ -7,7 +7,8 @@ var UserSchema = mongoose.Schema({
   id: String,
   facebookId: String,
   accessToken: String,
-  displayName: String
+  displayName: String,
+  facebookPicture: String
 })
 
 var User = mongoose.model('User', UserSchema)

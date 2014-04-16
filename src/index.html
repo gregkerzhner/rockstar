@@ -1,13 +1,18 @@
   <!DOCTYPE html>
 <html ng-app="rockstar">
 <head>
+
   <title>Workshop Seed</title>
   <% styles.forEach( function ( file ) { %>
   <link rel="stylesheet" type="text/css" href="<%= file %>"/>
   <% }); %>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
 </head>
-<body ui-view>
+<body>
+  <div class="container-fluid" ui-view>
+    
 
+  </div>
 </body>
 <% scripts.forEach( function ( file ) { %>
 <script type="text/javascript" src="<%= file %>"></script>

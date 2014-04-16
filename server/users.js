@@ -6,8 +6,12 @@ exports.currentUser= function(req, res){
 
 exports.climbs = function(req, res){
   var UserClimb = schema.UserClimb;
-  UserClimb.find({user: req.user.id}, function(err, climbs){
-    debugger
-    res.json({ok: true})
+  var Climb = schema.Climb;
+  UserClimb.find({user: req.user._id}).populate("climb").exec(function(err, userClimbs){
+    var climbs = []
+    for(var i = 0; i<userClimbs.length; i++){
+      climbs.push(userClimbs[i].climb);
+    }
+    res.json({climbs: climbs})
   });
 }

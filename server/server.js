@@ -14,13 +14,13 @@ mongoose.connect(config.db);
 var User = require("./schema").User
 
 passport.serializeUser(function(user, done) {
-  debugger
    done(null, {
-      id: user["facebookId"],
+      _id: user._id,
       facebookId: user["facebookId"],
       displayName: user.displayName,
       email: user["email"],
-      accessToken: user.accessToken
+      accessToken: user.accessToken,
+      facebookPicture: user.facebookPicture
    });
 });
 
@@ -40,7 +40,8 @@ passport.use(new FacebookStrategy({
     clientID: config.facebook_app_id,
     clientSecret: config.facebook_app_secret,
     callbackURL: config.oauth_callback,
-    enableProof: false
+    enableProof: false,
+    profileFields: ['id', 'displayName', 'photos']
   },
   function(accessToken, refreshToken, profile, done) {
 
@@ -51,7 +52,8 @@ passport.use(new FacebookStrategy({
             facebookId: profile.id,
             created: Date.now(),
             accessToken: accessToken,
-            displayName: profile.displayName
+            displayName: profile.displayName,
+            facebookPicture: profile.photos[0].value
         });
         userData.save(function(err, user) {
           if (err) console.log(err);

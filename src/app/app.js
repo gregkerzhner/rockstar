@@ -33,5 +33,7 @@ angular.module('rockstar', [
         ); 
       } 
     }); 
+
+    //$urlRouterProvider.otherwise('');
   })
 
