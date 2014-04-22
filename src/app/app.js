@@ -13,6 +13,7 @@ angular.module('rockstar', [
     'angularMoment'
   ])
   .config(function ($locationProvider, $httpProvider, $stateProvider, $urlRouterProvider, $injector) {
+    $locationProvider.html5Mode(true);
 
     $stateProvider
       .state('dashboard', {
