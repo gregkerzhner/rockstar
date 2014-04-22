@@ -1,4 +1,4 @@
-angular.module('rockstar.dashboard.header', [
+angular.module('rockstar.header', [
   'ui.router',
   'rockstar.common.services.current-user'
 ])

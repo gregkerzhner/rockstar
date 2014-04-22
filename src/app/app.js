@@ -4,18 +4,19 @@ angular.module('rockstar', [
     'rockstar.login',
     'event-dispatcher',
     'rockstar.common.services.current-user',
-    'rockstar.dashboard.climbs',
     'templates-app',
     'templates-common',
     'ngSanitize',
-    'rockstar.dashboard.header',
-    'rockstar.dashboard.sidebar',
+    'rockstar.header',
+    'rockstar.dashboard-container',
+    'rockstar.dashboard.climbs',
+    //'rockstar.tracker',
     'angularMoment'
   ])
   .config(function ($locationProvider, $httpProvider, $stateProvider, $urlRouterProvider, $injector) {
     $locationProvider.html5Mode(true);
 
-    $stateProvider
+    /*$stateProvider
       .state('dashboard', {
         url: '/dashboard',
         views: {
@@ -29,6 +30,23 @@ angular.module('rockstar', [
           },
           '':{
             template: '<div ui-view="content"></div>'
+          }
+        }
+      })
+    ;
+
+    */
+
+    $stateProvider
+      .state('rockstar', {
+        url: '',
+        views: {
+          'header':{
+            templateUrl: 'common/layout/header.tpl.html',
+            controller: 'HeaderController'
+          },
+          'content':{
+            template: '<div ui-view></div>'
           }
         }
       })
