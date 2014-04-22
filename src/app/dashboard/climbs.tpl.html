@@ -1,0 +1,6 @@
+<div class="col-md-2">
+  <div ng-repeat="climb in climbs" class="small-pad">
+    <div>Your climbs</div>
+    <a href="{{'/users/'+currentUser._id+'/climb/'+climb._id}}">{{climb.name}}</a>
+  </div>
+</div>

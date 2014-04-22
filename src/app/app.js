@@ -4,20 +4,34 @@ angular.module('rockstar', [
     'rockstar.login',
     'event-dispatcher',
     'rockstar.common.services.current-user',
-    'rockstar.dashboard.container',
+    'rockstar.dashboard.climbs',
     'templates-app',
     'templates-common',
     'ngSanitize',
+    'rockstar.dashboard.header',
+    'rockstar.dashboard.sidebar',
     'angularMoment'
   ])
   .config(function ($locationProvider, $httpProvider, $stateProvider, $urlRouterProvider, $injector) {
-    $locationProvider.html5Mode(true);
+
     $stateProvider
       .state('dashboard', {
         url: '/dashboard',
-        templateUrl: 'dashboard.tpl.html',
-        abstract: true
+        views: {
+          'header':{
+            templateUrl: 'common/layout/header.tpl.html',
+            controller: 'HeaderController'
+          },
+          'sidebar':{
+            templateUrl: 'common/layout/sidebar.tpl.html',
+            controller: 'SidebarController'
+          },
+          '':{
+            template: '<div ui-view="content"></div>'
+          }
+        }
       })
+    ;
 
     $httpProvider.responseInterceptors.push(function($q, $location, $injector) { 
       return function(promise) { 
