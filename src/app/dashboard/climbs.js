@@ -18,8 +18,10 @@ angular.module('rockstar.dashboard.climbs', [
     ;
   })
   .controller('ClimbsController', function ($scope, userClimbs, currentUser) {
-    $scope.climbs = userClimbs.climbs;
+    $scope.climbs = []
     $scope.currentUser = currentUser
-    userClimbs.fetch()
+    userClimbs.fetch().then(function(climbs){
+      $scope.climbs = climbs;
+    })
   })
 ;

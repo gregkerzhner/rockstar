@@ -34,7 +34,8 @@ var UserClimbSchema = mongoose.Schema({
 
 var AttemptSchema = mongoose.Schema({
   userClimb: {type : mongoose.Schema.ObjectId, ref : 'UserClimb'},
-  name: String  
+  name: String,
+  coordinates: []
 })
 
 
@@ -48,5 +49,6 @@ module.exports = {
   User: User,
   Area: Area,
   Climb: Climb,
-  UserClimb: UserClimb
+  UserClimb: UserClimb,
+  Attempt: Attempt
 }

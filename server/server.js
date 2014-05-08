@@ -1,9 +1,10 @@
-var express = require('express');
+  var express = require('express');
 var app = express(),
   mongoose = require('mongoose'),
   MongoStore = require('connect-mongo')(express),
   server = require('http').createServer(app),
   userRoutes = require('./users'),
+  attemptRoutes = require('./attempts'),
   config = require('./server-config'),
   passport = require("passport"),
   FacebookStrategy= require('passport-facebook').Strategy;
@@ -92,6 +93,10 @@ app.get('/auth/facebook/callback',
 app.get('/auth/facebook', passport.authenticate('facebook'));
 app.get('/current-user', authenticatedOrNot, userRoutes.currentUser);
 app.get('/user-climbs', authenticatedOrNot, userRoutes.climbs);
+app.post('/user-climbs', authenticatedOrNot, userRoutes.newUserClimb);
+app.post('/climbs', authenticatedOrNot, userRoutes.newClimb);
+app.post('/attempt', authenticatedOrNot, attemptRoutes.create);
+app.get('/attempts', authenticatedOrNot, attemptRoutes.create);
 
 app.use(function(req, res) {
   res.sendfile(config.static_site_root+ '/index.html');

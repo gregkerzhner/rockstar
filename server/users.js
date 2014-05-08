@@ -15,3 +15,20 @@ exports.climbs = function(req, res){
     res.json({climbs: climbs})
   });
 }
+
+exports.newClimb = function(req, res){
+  var Climb = schema.Climb;
+  var climb = new Climb(req.body);
+  climb.save(function(err, climb){
+    res.send(201, climb)
+  })
+}
+
+exports.newUserClimb = function(req, res){
+  var UserClimb = schema.UserClimb;
+  var userClimb = new UserClimb({user: req.user._id, climb: req.body.climb})
+  userClimb.save(function(err, userClimb){
+    res.send(201, userClimb);
+  })
+
+}

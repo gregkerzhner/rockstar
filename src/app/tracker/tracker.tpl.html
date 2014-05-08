@@ -1,3 +1,8 @@
 <div class="col-md-8">
-    <div class="small-pad">Welcome {{currentUser.displayName}}</div>
+  <div class="small-pad">
+    <select ng-model="selectedClimb" ng-options="c['_id'] as c.name for c in climbs"></select>
+    <a class="btn btn-success" href="/new-climb">New Climb</a>
+    <a class="btn btn-warning" ng-click="startClimb()">Start</a>
+    <a class="btn btn-danger" ng-click="stopClimb()">Stop</a>
+  </div>
 </div>

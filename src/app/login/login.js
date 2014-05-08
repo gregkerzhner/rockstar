@@ -3,7 +3,7 @@ angular.module('rockstar.login', [
 ])
   .config(function ($stateProvider) {
     $stateProvider
-      .state('login', {
+      .state('rockstar.login', {
         url: '/login',
         templateUrl: 'login/login.tpl.html',
         controller: 'LoginController'
