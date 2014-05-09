@@ -1,4 +1,7 @@
 var schema = require("./schema");
+var UserClimb = schema.UserClimb;
+var Climb = schema.Climb;
+var Attempt = schema.Attempt;
 
 exports.create = function(req, res){
   var Attempt = schema.Attempt;
@@ -13,9 +16,11 @@ exports.create = function(req, res){
   });
 }
 
-exports.get = function(req, res){
-  var Attempt = schema.Attempt;
-  debugger;
+exports.index = function(req, res){
+  Attempt.find({userClimb: req.params["user_climb_id"]}, function(err, attempts){
+    res.json(attempts)
+  });
 }
+
 
 //tom roberts

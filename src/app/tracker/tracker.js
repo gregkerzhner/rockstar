@@ -1,6 +1,7 @@
 angular.module('rockstar.tracker', [
   'ui.router',
   'rockstar.common.services.user-climbs',
+  'rockstar.common.services.climbs',
   'rockstar.common.services.attempt'
 ])
   .config(function ($stateProvider) {
@@ -13,11 +14,11 @@ angular.module('rockstar.tracker', [
     ;
   })
 
-  .controller('TrackerController', function ($scope, $http, userClimbs, Attempt) {
+  .controller('TrackerController', function ($scope, $http, userClimbs, climbs, Attempt) {
     $scope.climbs = [];
     $scope.selectedClimb;
 
-    userClimbs.fetch().then(function(climbs){
+    climbs.index().then(function(climbs){
       $scope.climbs = climbs;
     });
 

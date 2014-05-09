@@ -35,7 +35,7 @@ var UserClimbSchema = mongoose.Schema({
 var AttemptSchema = mongoose.Schema({
   userClimb: {type : mongoose.Schema.ObjectId, ref : 'UserClimb'},
   name: String,
-  coordinates: []
+  coordinates: [],
 })
 
 

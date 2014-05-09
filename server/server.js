@@ -4,6 +4,8 @@ var app = express(),
   MongoStore = require('connect-mongo')(express),
   server = require('http').createServer(app),
   userRoutes = require('./users'),
+  userClimbRoutes = require('./user-climbs'),
+  climbRoutes = require('./climbs'),
   attemptRoutes = require('./attempts'),
   config = require('./server-config'),
   passport = require("passport"),
@@ -92,11 +94,14 @@ app.get('/auth/facebook/callback',
 
 app.get('/auth/facebook', passport.authenticate('facebook'));
 app.get('/current-user', authenticatedOrNot, userRoutes.currentUser);
-app.get('/user-climbs', authenticatedOrNot, userRoutes.climbs);
-app.post('/user-climbs', authenticatedOrNot, userRoutes.newUserClimb);
-app.post('/climbs', authenticatedOrNot, userRoutes.newClimb);
+app.get('/user-climb/:id', authenticatedOrNot, userClimbRoutes.show);
+app.get('/climbs', authenticatedOrNot, climbRoutes.index);
+app.get('/user-climbs/:user_climb_id/attempts', authenticatedOrNot, attemptRoutes.index);
+app.get('/user-climbs', authenticatedOrNot, userClimbRoutes.index);
+app.post('/user-climbs', authenticatedOrNot, userClimbRoutes.create);
+app.post('/climbs', authenticatedOrNot, climbRoutes.create);
 app.post('/attempt', authenticatedOrNot, attemptRoutes.create);
-app.get('/attempts', authenticatedOrNot, attemptRoutes.create);
+
 
 app.use(function(req, res) {
   res.sendfile(config.static_site_root+ '/index.html');
