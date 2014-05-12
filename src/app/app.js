@@ -9,7 +9,8 @@ angular.module('rockstar', [
     'ngSanitize',
     'rockstar.header',
     'rockstar.dashboard-container',
-    'rockstar.dashboard.climbs',
+    'rockstar.dashboard.user-climbs',
+    'rockstar.dashboard.user-climb',
     'rockstar.tracker',
     'rockstar.new-climb',
     'angularMoment'

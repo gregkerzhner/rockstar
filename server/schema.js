@@ -28,7 +28,8 @@ var Climb = mongoose.model('Climb', ClimbSchema)
 
 var UserClimbSchema = mongoose.Schema({
   user: {type : mongoose.Schema.ObjectId, ref : 'User'},
-  climb: {type : mongoose.Schema.ObjectId, ref : 'Climb'}
+  climb: {type : mongoose.Schema.ObjectId, ref : 'Climb'},
+  attempts: [{type : mongoose.Schema.ObjectId, ref : 'Attempt'}]
 })
 
 

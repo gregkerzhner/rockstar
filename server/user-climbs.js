@@ -17,7 +17,7 @@ exports.create = function(req, res){
 }
 
 exports.show = function(req, res){
-  UserClimb.findById(req.params["id"]).populate("climb").exec(function(err, userClimb){
+  UserClimb.findById(req.params["id"]).populate("climb").populate('attempts').exec(function(err, userClimb){
     res.json(userClimb)
   });
 }

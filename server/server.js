@@ -96,12 +96,12 @@ app.get('/auth/facebook', passport.authenticate('facebook'));
 app.get('/current-user', authenticatedOrNot, userRoutes.currentUser);
 app.get('/user-climb/:id', authenticatedOrNot, userClimbRoutes.show);
 app.get('/climbs', authenticatedOrNot, climbRoutes.index);
-app.get('/user-climbs/:user_climb_id/attempts', authenticatedOrNot, attemptRoutes.index);
+app.get('/user-climb/:user_climb_id/attempts', authenticatedOrNot, attemptRoutes.index);
 app.get('/user-climbs', authenticatedOrNot, userClimbRoutes.index);
 app.post('/user-climbs', authenticatedOrNot, userClimbRoutes.create);
 app.post('/climbs', authenticatedOrNot, climbRoutes.create);
 app.post('/attempt', authenticatedOrNot, attemptRoutes.create);
-
+app.get('/attempt/:id', authenticatedOrNot, attemptRoutes.show);
 
 app.use(function(req, res) {
   res.sendfile(config.static_site_root+ '/index.html');

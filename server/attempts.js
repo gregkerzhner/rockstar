@@ -22,5 +22,10 @@ exports.index = function(req, res){
   });
 }
 
+exports.show = function(req, res){
+  Attempt.findById(req.params["id"], function(err, attempt){
+    debugger
+    res.json(attempt)
+  });
+}
 
-//tom roberts

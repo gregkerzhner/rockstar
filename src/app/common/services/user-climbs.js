@@ -11,5 +11,9 @@ angular.module('rockstar.common.services.user-climbs', [
     userClimbs.show = function(id){
       return $http.get('/user-climb/'+id)
     }
+
+    userClimbs.index = function(params){
+      return $http.get('/user-climbs')
+    }
   })
 ;
