@@ -8,5 +8,9 @@ angular.module('rockstar.common.services.attempts', [
       return $http.get('/user-climb/'+userClimbId+'/attempts')
     }
 
+    attempts.show = function(attemptId){
+     return $http.get('/attempt/'+attemptId);
+    }
+
   })
 ;

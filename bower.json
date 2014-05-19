@@ -1,8 +1,8 @@
 {
-  "name": "workshop-seed",
+  "name": "rockstar",
   "version": "0.0.1",
   "authors": [
-    "Joel Hooks <joelhooks@gmail.com>"
+    "Greg Kerzhner"
   ],
   "description": "This is an example.",
   "license": "MIT",
@@ -19,7 +19,8 @@
     "angular-ui-router": "~0.2.8",
     "bootstrap": "~3.0.3",
     "lodash": "~2.4.1",
-    "jasmine-jquery": "~1.7.0"
+    "jasmine-jquery": "~1.7.0",
+    "d3":"*"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.9",

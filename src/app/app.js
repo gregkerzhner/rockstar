@@ -11,6 +11,7 @@ angular.module('rockstar', [
     'rockstar.dashboard-container',
     'rockstar.dashboard.user-climbs',
     'rockstar.dashboard.user-climb',
+    'rockstar.dashboard.attempt',
     'rockstar.tracker',
     'rockstar.new-climb',
     'angularMoment'

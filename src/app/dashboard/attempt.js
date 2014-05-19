@@ -2,7 +2,8 @@ angular.module('rockstar.dashboard.attempt', [
   'ui.router',
   'rockstar.common.services.user-climbs',
   'rockstar.common.services.current-user',
-  'rockstar.common.services.attempts'
+  'rockstar.common.services.attempts',
+  'rockstar.common.directives.3dplot'
 ])
   .config(function ($stateProvider) {
     $stateProvider
@@ -19,16 +20,12 @@ angular.module('rockstar.dashboard.attempt', [
     ;
   })
   .controller('AttemptController', function ($scope, $stateParams, userClimbs, attempts, currentUser) {
-    $scope.userClimb;
     $scope.currentUser = currentUser;
-    $scope.attempts;
-
-    userClimbs.show($stateParams.user_climb_id).then(function(userClimb){
-      $scope.userClimb = userClimb.data;
+    $scope.attempt;
+    attempts.show($stateParams.attempt_id).then(function(data){
+      $scope.attempt = data.data;
     })
 
-    attempts.index($stateParams.user_climb_id).then(function(attempts){
-      $scope.attempts = attempts.data;
-    })
+    
   })
 ;
