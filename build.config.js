@@ -36,7 +36,9 @@ module.exports = {
       'vendor/angular-moment/angular-moment.js',
       'vendor/angular-ui-router/release/angular-ui-router.js',
       'vendor/angular-bootstrap/ui-bootstrap-tpls.js',
-      'vendor/mixin/object-mixin.js'
+      'vendor/mixin/object-mixin.js',
+      'vendor/d3/d3.js',
+      'vendor/three/three.min.js'
     ],
     css: [
 

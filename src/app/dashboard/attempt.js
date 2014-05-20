@@ -24,8 +24,6 @@ angular.module('rockstar.dashboard.attempt', [
     $scope.attempt;
     attempts.show($stateParams.attempt_id).then(function(data){
       $scope.attempt = data.data;
-    })
-
-    
+    })    
   })
 ;

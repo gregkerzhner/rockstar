@@ -1,4 +1,3 @@
-alert("hi")
 !function() {
   var d3 = {
     version: "3.4.6"
@@ -31,7 +30,7 @@ alert("hi")
     };
     d3_style_prototype.setProperty = function(name, value, priority) {
       d3_style_setProperty.call(this, name, value + "", priority);
-    };
+    }; 
   }
   d3.ascending = d3_ascending;
   function d3_ascending(a, b) {
