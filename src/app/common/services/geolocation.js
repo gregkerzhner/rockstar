@@ -44,6 +44,17 @@ angular.module('geolocation')
           $rootScope.$apply(function(){deferred.reject(geolocation_msgs['errors.location.unsupportedBrowser']);});
         }
         return deferred.promise;
+      },
+
+      getAccuracy: function(){
+        var deferred = $q.defer();
+
+        this.getLocation().then(function(data){
+          if(!data || !data.coords) deferred.reject("Cannot get accuracy.");
+          deferred.resolve({accuracy: data.coords.accuracy, altitudeAccuracy: data.coords.altitudeAccuracy})
+        })
+        
+        return deferred.promise;
       }
     };
 }]);

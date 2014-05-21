@@ -44,6 +44,10 @@ angular.module('rockstar.common.services.attempt', [
       });
     }
 
+    Attempt.prototype.getAccuracy = function(){
+      return geolocation.getAccuracy();
+    }
+
     return Attempt;
   })
 ;
