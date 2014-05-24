@@ -1,0 +1,17 @@
+<div ng-if="show">
+  <div class="overlay big-font">
+      <div class="col-md-6">
+        Recording climb
+      </div>
+      <div class="col-md-6">
+        <img src="assets/spinner.gif"></img>
+      </div>
+      <div class="col-md-6">
+        Location accuracy: {{accuracy.accuracy}}
+      </div>
+
+      <div class="col-md-6">
+        Altitude accuracy: {{accuracy.altitudeAccuracy || "Not Available"}}
+      </div>
+  </div>
+</div>

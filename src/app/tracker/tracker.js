@@ -2,7 +2,8 @@ angular.module('rockstar.tracker', [
   'ui.router',
   'rockstar.common.services.user-climbs',
   'rockstar.common.services.climbs',
-  'rockstar.common.services.attempt'
+  'rockstar.common.services.attempt',
+  'rockstar.common.directives.spinner'
 ])
   .config(function ($stateProvider) {
     $stateProvider
