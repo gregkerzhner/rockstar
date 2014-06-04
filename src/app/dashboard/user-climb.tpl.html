@@ -1,6 +1,22 @@
-<div class="col-md-2">
-  <div>Attempts for climb {{userClimb.climb.name}}</div>
-  <div ng-repeat="attempt in attempts" class="small-pad">
-    <a href="{{}}">{{attempt._id}}</a>
-  </div>
+<div class="col-md-10">
+  <h1>Attempts for climb {{userClimb.climb.name}}</h1>
+  <table class="table table-striped">
+  	<th>
+  		<td>ID</td>
+      <td>Date</td>
+	 </th>
+		<tr ng-repeat="attempt in attempts" class="small-pad">
+      <td></td>
+      <td>
+        <a ui-sref="rockstar.dashboard-container.dashboard.attempt({ user_climb_id: userClimbId,
+        attempt_id: attempt._id
+        })">{{attempt._id}}</a>
+      </td>
+      <td>        
+        <a ui-sref="rockstar.dashboard-container.dashboard.attempt({ user_climb_id: userClimbId,
+        attempt_id: attempt._id
+        })">{{attempt.time}}</a>
+      </td>
+	  </tr>
+  </table>
 </div>

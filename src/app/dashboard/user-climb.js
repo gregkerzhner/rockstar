@@ -22,6 +22,7 @@ angular.module('rockstar.dashboard.user-climb', [
     $scope.userClimb;
     $scope.currentUser = currentUser;
     $scope.attempts;
+    $scope.userClimbId = $stateParams.user_climb_id;
 
     userClimbs.show($stateParams.user_climb_id).then(function(userClimb){
       $scope.userClimb = userClimb.data;
