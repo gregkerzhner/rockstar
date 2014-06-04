@@ -20,5 +20,9 @@ angular.module('rockstar.common.services.climbs', [
       return deferred.promise;
     }
 
+    climbs.show = function(climbId){
+      return $http.get('/climb/'+climbId);
+    }
+
   })
 ;

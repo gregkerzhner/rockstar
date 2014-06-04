@@ -1,7 +1,9 @@
 angular.module('rockstar.dashboard.user-climbs', [
   'ui.router',
   'rockstar.common.services.user-climbs',
-  'rockstar.common.services.current-user'
+  'rockstar.common.services.current-user',
+  'rockstar.common.services.climbs',
+  'rockstar.common.services.areas'
 ])
   .config(function ($stateProvider) {
     $stateProvider
@@ -17,11 +19,26 @@ angular.module('rockstar.dashboard.user-climbs', [
       })
     ;
   })
-  .controller('UserClimbsController', function ($scope, userClimbs, currentUser) {
-    $scope.climbs = []
-    $scope.currentUser = currentUser
+  .controller('UserClimbsController', function ($scope, userClimbs, currentUser, areas) {
+    $scope.climbs = [];
+    $scope.currentUser = currentUser;
+
+    $scope.fetchAreas = function(){
+      for(var i = 0; i<$scope.userClimbs.length; i++){
+        $scope.setArea(i)
+      }
+    }
+
+    $scope.setArea = function(userClimbIndex){
+      var userClimb = $scope.userClimbs[userClimbIndex];
+      areas.show(userClimb.climb.area).then(function(area){
+        $scope.userClimbs[userClimbIndex].area = area.data;
+      })
+    }
+
     userClimbs.index().then(function(userClimbs){
       $scope.userClimbs = userClimbs.data;
+      $scope.fetchAreas();
     })
   })
 ;

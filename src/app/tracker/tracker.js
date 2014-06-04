@@ -23,11 +23,15 @@ angular.module('rockstar.tracker', [
       climb: $scope.selectedClimb
     });
 
+    $scope.showSpinner = false;
+
     climbs.index().then(function(climbs){
       $scope.climbs = climbs;
     });
 
     $scope.startClimb = function(){
+      $scope.attempt.climb = $scope.selectedClimb;
+      $scope.showSpinner = true;
       $scope.attempt.track();
     }
 
@@ -42,6 +46,7 @@ angular.module('rockstar.tracker', [
     }
 
     $scope.stopClimb = function(){
+      $scope.showSpinner = false;
       $scope.attempt.stop();
     }
 

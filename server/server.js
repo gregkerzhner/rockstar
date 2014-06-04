@@ -5,6 +5,7 @@ var app = express(),
   server = require('http').createServer(app),
   userRoutes = require('./users'),
   userClimbRoutes = require('./user-climbs'),
+  areaRoutes = require('./areas'),
   climbRoutes = require('./climbs'),
   attemptRoutes = require('./attempts'),
   config = require('./server-config'),
@@ -13,6 +14,7 @@ var app = express(),
 
 server.listen(config.port);
 mongoose.connect(config.db);
+
 
 var User = require("./schema").User
 
@@ -102,6 +104,7 @@ app.post('/user-climbs', authenticatedOrNot, userClimbRoutes.create);
 app.post('/climbs', authenticatedOrNot, climbRoutes.create);
 app.post('/attempt', authenticatedOrNot, attemptRoutes.create);
 app.get('/attempt/:id', authenticatedOrNot, attemptRoutes.show);
+app.get('/area/:id', authenticatedOrNot, areaRoutes.show);
 
 app.use(function(req, res) {
   res.sendfile(config.static_site_root+ '/index.html');
