@@ -3,7 +3,7 @@ angular.module('rockstar.dashboard.attempt', [
   'rockstar.common.services.user-climbs',
   'rockstar.common.services.current-user',
   'rockstar.common.services.attempts',
-  'rockstar.common.directives.3dplot'
+  'rockstar.common.directives.linegraph'
 ])
   .config(function ($stateProvider) {
     $stateProvider
