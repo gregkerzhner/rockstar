@@ -18,11 +18,13 @@ angular.module('rockstar.common.services.attempt', [
     }
 
     Attempt.prototype.track = function(){
+      this.startTime = new Date().getTime();
       this.getLocation();
     }
 
     Attempt.prototype.stop = function(){
       this.finished = true;
+      this.endTime = new Date().getTime();
       this.save()
     }
 

@@ -24,6 +24,7 @@ angular.module('rockstar.dashboard.attempt', [
     $scope.attempt;
     attempts.show($stateParams.attempt_id).then(function(data){
       $scope.attempt = data.data;
+      $scope.climbDuration = (Date.parse($scope.attempt.endTime) - Date.parse($scope.attempt.startTime) )/1000;
     })    
   })
 ;

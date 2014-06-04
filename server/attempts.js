@@ -10,6 +10,8 @@ exports.create = function(req, res){
     var attempt = new Attempt()
     attempt.userClimb = userClimb;
     attempt.coordinates = req.body.coordinates;
+    attempt.startTime = req.body.startTime;
+    attempt.endTime = req.body.endTime;
     attempt.save(function(err,attempt){
       res.send(201, attempt);
     })
