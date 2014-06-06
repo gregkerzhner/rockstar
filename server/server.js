@@ -105,6 +105,7 @@ app.post('/climbs', authenticatedOrNot, climbRoutes.create);
 app.post('/attempt', authenticatedOrNot, attemptRoutes.create);
 app.get('/attempt/:id', authenticatedOrNot, attemptRoutes.show);
 app.get('/area/:id', authenticatedOrNot, areaRoutes.show);
+app.get('/users', authenticatedOrNot, userRoutes.index);
 
 app.use(function(req, res) {
   res.sendfile(config.static_site_root+ '/index.html');
