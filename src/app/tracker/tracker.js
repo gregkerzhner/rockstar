@@ -17,8 +17,9 @@ angular.module('rockstar.tracker', [
 
   .controller('TrackerController', function ($scope, $http, userClimbs, climbs, Attempt) {
     $scope.climbs = [];
-    $scope.selectedClimb;
     $scope.accurracy;
+    $scope.state = "begin";
+
     $scope.attempt = new Attempt({
       climb: $scope.selectedClimb
     });
@@ -27,11 +28,11 @@ angular.module('rockstar.tracker', [
 
     climbs.index().then(function(climbs){
       $scope.climbs = climbs;
+      $scope.attempt.climb = climbs[0]._id;
     });
 
     $scope.startClimb = function(){
-      $scope.attempt.climb = $scope.selectedClimb;
-      $scope.showSpinner = true;
+      $scope.state = 'recording';
       $scope.attempt.track();
     }
 
@@ -46,8 +47,12 @@ angular.module('rockstar.tracker', [
     }
 
     $scope.stopClimb = function(){
-      $scope.showSpinner = false;
+      $scope.state = 'recorded';
       $scope.attempt.stop();
+    }
+
+    $scope.saveClimb = function(){
+      $scope.attempt.save();
     }
 
     $scope.getAccuracy();

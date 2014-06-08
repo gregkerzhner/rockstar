@@ -25,7 +25,6 @@ angular.module('rockstar.common.services.attempt', [
     Attempt.prototype.stop = function(){
       this.finished = true;
       this.endTime = new Date().getTime();
-      this.save()
     }
 
     Attempt.prototype.save = function(){

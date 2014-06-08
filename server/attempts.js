@@ -12,6 +12,7 @@ exports.create = function(req, res){
     attempt.coordinates = req.body.coordinates;
     attempt.startTime = req.body.startTime;
     attempt.endTime = req.body.endTime;
+    attempt.notes = req.body.notes;
     attempt.save(function(err,attempt){
       res.send(201, attempt);
     })

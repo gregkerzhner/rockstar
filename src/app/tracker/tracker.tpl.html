@@ -1,15 +1,23 @@
 <div class="relative col-md-12">
-	<div class="col-md-12">
-	  Select a climb
-	  <select ng-model="selectedClimb" ng-options="c['_id'] as c.name for c in climbs" class="strech small-margin-top-bottom"></select>
-	</div>
-	<div class="col-md-12">
-	  <a class="btn btn-success strech small-margin-top-bottom" href="/new-climb">Add New Climb</a>
-	</div>
-	<div class="col-md-12">
-	  <a class="btn btn-warning strech small-margin-top-bottom" ng-click="startClimb()">Start</a>
-	</div>
-	<div class="row overlay big-font" ng-if="showSpinner">
+  <div ng-if="state=='begin'">
+    <div class="row">
+    	<div class="col-md-12">
+    	  Select a climb
+    	  <select ng-model="attempt.climb" ng-options="c['_id'] as c.name for c in climbs" class="strech small-margin-top-bottom" ></select>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-12">
+    	  <a class="btn btn-success strech small-margin-top-bottom" href="/new-climb">Add New Climb</a>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="col-md-12">
+    	  <a class="btn btn-warning strech small-margin-top-bottom" ng-click="startClimb()">Start</a>
+    	</div>
+    </div>
+  </div>
+	<div class="row" ng-if="state=='recording'">
     <div class="col-md-6">
       Recording climb
     </div>
@@ -19,19 +27,33 @@
     <div class="col-md-6">
       Location accuracy: {{accuracy.accuracy}}
     </div>
-
     <div class="col-md-6">
       Altitude accuracy: {{accuracy.altitudeAccuracy || "Not Available"}}
     </div>
+    <div class="col-md-12">
+      <a class="btn btn-danger strech small-margin-top-bottom" ng-click="stopClimb()">Stop</a>
+    </div>
 	</div>
 </div>
-<div class="col-md-12">
-  <a class="btn btn-danger strech small-margin-top-bottom" ng-click="stopClimb()">Stop</a>
-</div>
-<div class="col-md-6">
-  Location accuracy: {{accuracy.accuracy}}
-</div>
 
-<div class="col-md-6">
-  Altitude accuracy: {{accuracy.altitudeAccuracy || "Not Available"}}
+<div class="col-md-12" ng-if="state=='recorded'">
+  <div class="row">
+    <div class="col-md-12">Notes</div>
+  </div>
+  <textarea
+    ng-model="attempt.notes"
+  >    
+  </textarea>
+  <div class="row">
+    <a class="btn btn-success strech small-margin-top-bottom" ng-click="saveClimb()">Save</a>
+  </div>
+</div>
+<div ng-if="state=='begin'">
+  <div class="col-md-6">
+    Location accuracy: {{accuracy.accuracy}}
+  </div>
+
+  <div class="col-md-6">
+    Altitude accuracy: {{accuracy.altitudeAccuracy || "Not Available"}}
+  </div>
 </div>

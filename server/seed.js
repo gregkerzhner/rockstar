@@ -82,6 +82,7 @@ eventEmitter.on('user:found', function(){
           userClimb: userClimb._id,
           "endTime": "2014-06-06T21:35:25.641Z",
           "startTime": "2014-06-06T21:35:19.708Z",
+          "notes": "Not as greasy as usual!",
           "coordinates": [
             {
               "speed": 0.36000001430511475,
