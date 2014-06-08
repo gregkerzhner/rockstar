@@ -47,7 +47,7 @@ angular.module('rockstar.common.directives.linegraph', [])
 
     $scope.draw = function(){
       if(!$scope.points) return;
-
+      
       $scope.minX = d3.min($scope.points, function(d) { return d[$scope.attrX]; });
       $scope.maxX = d3.max($scope.points, function(d) { return d[$scope.attrX]; });
 
