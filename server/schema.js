@@ -39,7 +39,8 @@ var AttemptSchema = mongoose.Schema({
   coordinates: [],
   startTime : { type : Date},
   endTime : { type : Date},
-  notes: String
+  notes: String,
+  number: Number
 })
 
 

@@ -2,20 +2,24 @@
   <h1>Attempts for climb {{userClimb.climb.name}}</h1>
   <table class="table table-striped">
   	<th>
-  		<td>ID</td>
+  		<td>Number</td>
       <td>Date</td>
+      <td>Length</td>
 	 </th>
 		<tr ng-repeat="attempt in attempts" class="small-pad">
       <td></td>
       <td>
         <a ui-sref="rockstar.dashboard-container.dashboard.attempt({ user_climb_id: userClimbId,
         attempt_id: attempt._id
-        })">{{attempt._id}}</a>
+        })">{{attempt.number}}</a>
       </td>
       <td>        
         <a ui-sref="rockstar.dashboard-container.dashboard.attempt({ user_climb_id: userClimbId,
         attempt_id: attempt._id
-        })">{{attempt.startTime}}</a>
+        })">{{attempt.date}}</a>
+      </td>
+      <td>
+        {{attempt.duration}} seconds
       </td>
 	  </tr>
   </table>
