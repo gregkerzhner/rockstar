@@ -1,5 +1,5 @@
 <div class="col-md-10">
-  <h1>Attempts for climb {{userClimb.climb.name}}</h1>
+  <h1>Your {{attempts[attempts.length-1].number}} tries for climb {{userClimb.climb.name}}</h1>
   <table class="table table-striped">
   	<th>
   		<td>Number</td>
@@ -19,7 +19,7 @@
         })">{{attempt.date}}</a>
       </td>
       <td>
-        {{attempt.duration}} seconds
+        {{attempt.duration}} seconds  
       </td>
 	  </tr>
   </table>
