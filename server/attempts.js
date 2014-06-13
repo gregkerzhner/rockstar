@@ -8,7 +8,7 @@ exports.create = function(req, res){
   var UserClimb = schema.UserClimb;
   UserClimb.findOne({user: req.user._id, climb: req.body.climb}, function(err, userClimb){
     Attempt.findOne({userClimb: userClimb._id}, function(err, attempt){
-      var number = attempt ? attempt.number + 1 : 1;
+      var number = (attempt && attempt.number) ? attempt.number + 1 : 1;
       var attempt = new Attempt()
       attempt.userClimb = userClimb;
       attempt.coordinates = req.body.coordinates;
@@ -16,7 +16,7 @@ exports.create = function(req, res){
       attempt.endTime = req.body.endTime;
       attempt.notes = req.body.notes;
       attempt.number = number;
-      attempt.save(function(err,attempt){
+      attempt.save(function(err, attempt){
         res.send(201, attempt);
       })
     })

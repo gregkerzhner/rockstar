@@ -1,14 +1,14 @@
 <div class="col-md-10">
   <h1>Your climbs</h1>
   <table class="table table-striped">
-  	<th>
-  		<td>ID</td>
-	  	<td>Name</td>
-	  	<td>Area</td> 
-		</th>
-		<tr ng-repeat="userClimb in userClimbs" class="small-pad">
+  	<tr>
+      <th/>
+	  	<th sort by="order" reverse="reverse" order="'climb.name'">Name</th>
+	  	<th sort by="order" reverse="reverse" order="'area.name'">Area</th> 
+		</tr>
+		<tr ng-repeat="userClimb in userClimbs | orderBy:order:reverse" 
+        class="small-pad">
 			<td></td>
-			<td>{{userClimb._id}}</td>
 			<td>
 	    	<a ui-sref="rockstar.dashboard-container.dashboard.user-climb({ user_climb_id: userClimb._id})">{{userClimb.climb.name}}</a>
 	    </td>

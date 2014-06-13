@@ -13,9 +13,6 @@ angular.module('rockstar.common.services.attempt', [
       this.finished = false;
     }
 
-    Attempt.prototype.save = function(){
-      console.log("saving");
-    }
 
     Attempt.prototype.track = function(){
       this.startTime = new Date().getTime();

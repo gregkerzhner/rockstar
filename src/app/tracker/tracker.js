@@ -15,7 +15,7 @@ angular.module('rockstar.tracker', [
     ;
   })
 
-  .controller('TrackerController', function ($scope, $http, userClimbs, climbs, Attempt) {
+  .controller('TrackerController', function ($scope, $state, $http, userClimbs, climbs, Attempt) {
     $scope.climbs = [];
     $scope.accurracy;
     $scope.state = "begin";
@@ -52,7 +52,13 @@ angular.module('rockstar.tracker', [
     }
 
     $scope.saveClimb = function(){
-      $scope.attempt.save();
+      $scope.attempt.save().then(function(res){
+        $state.go("rockstar.dashboard-container.dashboard.attempt",
+          {user_climb_id: res.data.userClimb,
+           attempt_id: res.data._id
+          }
+        );
+      })
     }
 
     $scope.getAccuracy();
