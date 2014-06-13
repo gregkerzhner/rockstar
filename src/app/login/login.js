@@ -11,7 +11,7 @@ angular.module('rockstar.login', [
     ;
   })
 
-  .controller('LoginController', function LoginController($http) {
-
+  .controller('LoginController', function LoginController($http, $scope, $rootScope) {
+    $rootScope.login = true;
   })
 ;

@@ -18,7 +18,6 @@ angular.module('rockstar', [
   ])
   .config(function ($locationProvider, $httpProvider, $stateProvider, $urlRouterProvider, $injector) {
     $locationProvider.html5Mode(true);
-
     $stateProvider
       .state('rockstar', {
         url: '',
