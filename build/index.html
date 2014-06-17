@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="rockstar">
+<head>
+  <base href="/">
+  <title>Workshop Seed</title>
+  
+  <link rel="stylesheet" type="text/css" href="assets/workshop-seed-0.0.1.css"/>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+</head>
+<body ng-class="{loginbackground: $root.login==true}">
+  <div class="container-fluid">
+    <div ui-view="header"></div>
+    <div class="row">
+      <div ui-view="content"></div>
+    </div>
+  </div>
+</body>
+
+<script type="text/javascript" src="vendor/lodash/dist/lodash.underscore.js"></script>
+
+<script type="text/javascript" src="vendor/moment/moment.js"></script>
+
+<script type="text/javascript" src="vendor/angular/angular.js"></script>
+
+<script type="text/javascript" src="vendor/angular-cookies/angular-cookies.js"></script>
+
+<script type="text/javascript" src="vendor/angular-sanitize/angular-sanitize.js"></script>
+
+<script type="text/javascript" src="vendor/angular-moment/angular-moment.js"></script>
+
+<script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+
+<script type="text/javascript" src="vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+<script type="text/javascript" src="vendor/mixin/object-mixin.js"></script>
+
+<script type="text/javascript" src="vendor/d3/d3.js"></script>
+
+<script type="text/javascript" src="vendor/three/three.min.js"></script>
+
+<script type="text/javascript" src="bundle.js"></script>
+
+<script type="text/javascript" src="src/app/app.js"></script>
+
+<script type="text/javascript" src="src/app/common/directives/3dplot.js"></script>
+
+<script type="text/javascript" src="src/app/common/directives/line-graph.js"></script>
+
+<script type="text/javascript" src="src/app/common/directives/sort.js"></script>
+
+<script type="text/javascript" src="src/app/common/directives/spinner.js"></script>
+
+<script type="text/javascript" src="src/app/common/layout/header.js"></script>
+
+<script type="text/javascript" src="src/app/common/layout/sidebar.js"></script>
+
+<script type="text/javascript" src="src/app/common/services/areas.js"></script>
+
+<script type="text/javascript" src="src/app/common/services/attempt.js"></script>
+
+<script type="text/javascript" src="src/app/common/services/attempts.js"></script>
+
+<script type="text/javascript" src="src/app/common/services/climbs.js"></script>
+
+<script type="text/javascript" src="src/app/common/services/current_user.js"></script>
+
+<script type="text/javascript" src="src/app/common/services/geolocation.js"></script>
+
+<script type="text/javascript" src="src/app/common/services/user-climbs.js"></script>
+
+<script type="text/javascript" src="src/app/config.js"></script>
+
+<script type="text/javascript" src="src/app/constants.js"></script>
+
+<script type="text/javascript" src="src/app/dashboard/attempt.js"></script>
+
+<script type="text/javascript" src="src/app/dashboard/dashboard-container.js"></script>
+
+<script type="text/javascript" src="src/app/dashboard/dashboard.js"></script>
+
+<script type="text/javascript" src="src/app/dashboard/user-climb.js"></script>
+
+<script type="text/javascript" src="src/app/dashboard/user-climbs.js"></script>
+
+<script type="text/javascript" src="src/app/login/login.js"></script>
+
+<script type="text/javascript" src="src/app/tracker/new-climb.js"></script>
+
+<script type="text/javascript" src="src/app/tracker/tracker.js"></script>
+
+<script type="text/javascript" src="templates-common.js"></script>
+
+<script type="text/javascript" src="templates-app.js"></script>
+
+</html>
