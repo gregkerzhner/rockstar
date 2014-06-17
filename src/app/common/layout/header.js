@@ -3,8 +3,6 @@ angular.module('rockstar.header', [
   'rockstar.common.services.current-user'
 ])
   .controller('HeaderController', function HeaderController($scope, currentUser, $location) {
-    $scope.showHeader = currentUser.loggedIn;
-    debugger;
     $scope.currentUser = currentUser;
     currentUser.fetch();
   })
