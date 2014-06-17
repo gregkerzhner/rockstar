@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  port: 3444,
+  port: 8080,
   rest_base_url: '/*',
   static_site_root: path.resolve(__dirname + '/../build'), //up a dir and find build
   db: 'mongodb://localhost/rockstar',
