@@ -26,7 +26,7 @@ angular.module("common/directives/spinner.tpl.html", []).run(["$templateCache", 
 
 angular.module("common/layout/header.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("common/layout/header.tpl.html",
-    "<div class=\"row\" ng-if=\"showHeader\">\n" +
+    "<div class=\"row\">\n" +
     "  <div class=\"col-md-12 small-pad\">\n" +
     "    <h1 class=\"pull-left\">Welcome {{currentUser.displayName}}</h1>\n" +
     "    <img class=\"pull-right pad\" src='{{currentUser.facebookPicture}}'></img>\n" +
@@ -96,7 +96,8 @@ angular.module("dashboard/attempt.tpl.html", []).run(["$templateCache", function
 
 angular.module("dashboard/dashboard-container.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/dashboard-container.tpl.html",
-    "<div ui-view=\"sidebar\"></div>\n" +
+    "<div ui-view=\"header\"></div>\n" +
+    "  <div ui-view=\"sidebar\"></div>\n" +
     "  <div ui-view></div>");
 }]);
 
@@ -182,6 +183,8 @@ angular.module("tracker/new-climb.tpl.html", []).run(["$templateCache", function
 
 angular.module("tracker/tracker.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("tracker/tracker.tpl.html",
+    "<audio controls autoplay loop src=\"http://www.sousound.com/music/healing/healing_01.mp3\" class=\"hide\"></audio>\n" +
+    "\n" +
     "<div class=\"relative col-md-12\">\n" +
     "  <div ng-if=\"state=='begin'\">\n" +
     "    <div class=\"row\">\n" +
