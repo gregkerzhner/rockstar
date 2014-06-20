@@ -8,7 +8,7 @@ angular.module('rockstar.dashboard', [
         url: '',
         views: {
           'header': {
-            templateUrl: 'layout/header.tpl.html',
+            templateUrl: 'common/layout/header.tpl.html',
             controller: 'HeaderController'
           },
           'sidebar':{

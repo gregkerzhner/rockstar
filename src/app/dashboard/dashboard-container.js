@@ -15,6 +15,6 @@ angular.module('rockstar.dashboard-container', [
   })
 
   .controller('DashboardController', function ($http) {
-
+    
   })
 ;
