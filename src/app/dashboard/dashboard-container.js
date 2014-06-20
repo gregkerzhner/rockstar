@@ -1,5 +1,6 @@
 angular.module('rockstar.dashboard-container', [
   'rockstar.dashboard',
+  'rockstar.header',
   'ui.router'
 ])
   .config(function ($stateProvider) {
@@ -14,6 +15,6 @@ angular.module('rockstar.dashboard-container', [
   })
 
   .controller('DashboardController', function ($http) {
-
+    
   })
 ;

@@ -22,10 +22,6 @@ angular.module('rockstar', [
       .state('rockstar', {
         url: '',
         views: {
-          'header':{
-            templateUrl: 'common/layout/header.tpl.html',
-            controller: 'HeaderController'
-          },
           'content':{
             template: '<div ui-view></div>'
           }
