@@ -1,21 +1,20 @@
-angular.module('rockstar.common.directives.spinner', [
-  'geolocation'
-  ])
-  .directive('spinner', function(){
-    return {
-      restrict: "A",
-      templateUrl: 'common/directives/spinner.tpl.html',
-      controller: "SpinnerController",
-      link: function (scope, element, attrs) {
-
-      }
+angular.module('rockstar.common.directives.spinner', ['geolocation']).directive('spinner', function () {
+  return {
+    restrict: 'A',
+    templateUrl: 'common/directives/spinner.tpl.html',
+    controller: 'SpinnerController',
+    link: function (scope, element, attrs) {
     }
-  })
-  .controller('SpinnerController', function($scope, $element, geolocation){
+  };
+}).controller('SpinnerController', [
+  '$scope',
+  '$element',
+  'geolocation',
+  function ($scope, $element, geolocation) {
     $scope.accuracy;
     $scope.show = true;
-    geolocation.getAccuracy().then(function(accuracy){
+    geolocation.getAccuracy().then(function (accuracy) {
       $scope.accuracy = accuracy;
-    })
-
-  });
+    });
+  }
+]);

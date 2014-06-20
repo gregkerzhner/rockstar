@@ -1,5 +1,2 @@
-angular.module("rockstar.constants", [])
-
-.constant("baseApiUrl", "/")
-
+angular.module('rockstar.constants', []).constant('baseApiUrl', '/');
 ;

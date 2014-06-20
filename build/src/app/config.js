@@ -1,3 +1,2 @@
-angular.module('rockstar.config', [])
-
+angular.module('rockstar.config', []);
 ;

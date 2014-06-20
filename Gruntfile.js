@@ -386,7 +386,8 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('compile', [
-    'browserify:compile', 'less:compile', 'copy:compile_assets', 'ngmin', 'concat:compile_js', 'uglify', 'index:compile'
+    'browserify:compile', 'less:compile', 'copy:compile_assets', 'ngmin', 'concat:compile_js', //'uglify'
+    , 'index:compile'
   ]);
 
   /**
