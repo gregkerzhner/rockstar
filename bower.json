@@ -1,33 +1,18 @@
 {
-  "name": "rockstar",
+  "name": "Rockstar",
   "version": "0.0.1",
   "authors": [
     "Greg Kerzhner"
   ],
-  "description": "This is an example.",
-  "license": "MIT",
   "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
   "dependencies": {
     "angular": "~1.2.9",
     "angular-ui-router": "~0.2.8",
+    "angular-resource":"*",
     "bootstrap": "~3.0.3",
-    "lodash": "~2.4.1",
-    "jasmine-jquery": "~1.7.0",
     "d3":"*"
   },
   "devDependencies": {
-    "angular-mocks": "~1.2.9",
-    "angular-bootstrap": "~0.10.0",
-    "angular-cookies": "~1.2.9",
-    "moment": "~2.5.1",
-    "angular-sanitize": "~1.2.13",
-    "d3":"*"
+    "angular-mocks": "~1.2.9"
   }
 }

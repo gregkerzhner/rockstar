@@ -1,70 +1,27 @@
 {
   "name": "rockstar",
   "version": "0.0.1",
-  "private": false,
-  "scripts": {
-    "ci": "grunt build"
-  },
+  "private": true,
   "devDependencies": {
-    "grunt": "*",
-    "grunt-contrib-watch": "",
-    "grunt-contrib-clean":  "*",
-    "grunt-contrib-copy":  "*",
-    "express":  "*",
-    "grunt-nodemon":  "*",
-    "grunt-concurrent": "*",
-    "grunt-html2js":  "*",
-    "karma-script-launcher":  "*",
-    "karma-chrome-launcher":  "*",
-    "karma-firefox-launcher":  "*",
-    "karma-html2js-preprocessor":  "*",
-    "karma-jasmine":  "*",
-    "karma-coffee-preprocessor":  "*",
-    "requirejs":  "*",
-    "karma-requirejs":  "*",
-    "karma-phantomjs-launcher":  "*",
-    "karma": "*",
-    "karma-junit-reporter": "*",
-    "grunt-karma":  "*",
-    "grunt-contrib-less":  "*",
-    "grunt-ngmin":  "*",
-    "grunt-contrib-concat":  "*",
-    "grunt-contrib-uglify":  "*",
-    "grunt-ng-constant":  "*",
-    "protractor":  "*",
-    "karma-osx-reporter":  "*",
-    "load-grunt-tasks": "*",
-    "grunt-browserify":  "*",
-    "uglifyify": "*",
-    "browserify-ngmin":  "*",
-    "browserify-shim":  "*",
-    "browserify":  "*",
-    "passport": "*",
-    "mongoose": "*",
-    "passport-facebook": "*",
-    "grunt-shell-spawn": "*",
-    "node-inspector": "*",
-    "grunt-node-inspector":"*"
+    "grunt":"*",
+    "grunt-contrib-concat":"*",
+    "grunt-contrib-uglify":"*",
+    "grunt-contrib-watch":"*",
+    "grunt-contrib-less":"*",
+    "grunt-html2js":"*",
+    "grunt-ng-constant":"*",
+    "grunt-template":"*",
+    "grunt-nodemon":"*",
+    "grunt-shell-spawn":"*",
+    "grunt-node-inspector":"*",
+    "grunt-concurrent":"*",
+    "node-inspector": "*"
   },
   "dependencies": {
-    "angular-browserify-event-dispatcher":  "*",
-    "extend-url":  "*",
-    "parse-url":  "*",
-    "parted":  "*",
-    "lodash":  "*",
-    "uritemplate":  "*",
     "passport": "*",
     "mongoose": "*",
     "passport-facebook": "*",
-    "connect-mongo" : "*"
-  },
-  "browserify": {
-    "transform": [
-      "browserify-shim",
-      "browserify-ngmin"
-    ]
-  },
-  "browserify-shim": {
-    "angular": "global:angular"
+    "connect-mongo" : "*",
+    "express":  "3.*"
   }
 }
