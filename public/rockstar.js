@@ -46232,7 +46232,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
     }
   })
   .controller('ScreensaverController', function($scope, $element, geolocation){
-    alert("hello from screensaver");
+
 
   });
 ;angular.module('rockstar.common.directives.sort', []).directive("sort", function() {

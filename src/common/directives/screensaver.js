@@ -9,6 +9,6 @@ angular.module('rockstar.common.directives.screensaver', [
     }
   })
   .controller('ScreensaverController', function($scope, $element, geolocation){
-    alert("hello from screensaver");
+
 
   });
