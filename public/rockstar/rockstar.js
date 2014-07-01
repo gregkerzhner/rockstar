@@ -46228,11 +46228,19 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
     return {
       restrict: "A",
       controller: "ScreensaverController",
-      templateUrl: 'common/directives/screensaver.tpl.html'
+      templateUrl: 'common/directives/screensaver.tpl.html',
+      scope: {
+        state: '=state'
+      }
     }
   })
   .controller('ScreensaverController', function($scope, $element, geolocation){
-
+    $scope.setState = function(){
+      if($scope.state === "recording"){
+        document.getElementById('audio').play();
+      }
+    }
+    $scope.$watch('state', $scope.setState);
 
   });
 ;angular.module('rockstar.common.directives.sort', []).directive("sort", function() {
@@ -46806,7 +46814,7 @@ angular.module("common/directives/3dplot.tpl.html", []).run(["$templateCache", f
 
 angular.module("common/directives/screensaver.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("common/directives/screensaver.tpl.html",
-    "<audio controls autoplay loop src=\"http://www.culturebully.com/wp-content/uploads/2011/04/01%20-%20Girl%20Talk%20-%20What%20It%27s%20All%20About.mp3\" class=\"hide\"></audio>");
+    "<audio id=\"audio\" controls loop src=\"http://www.culturebully.com/wp-content/uploads/2011/04/01%20-%20Girl%20Talk%20-%20What%20It%27s%20All%20About.mp3\" class=\"hide\"></audio>");
 }]);
 
 angular.module("common/directives/spinner.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -46998,7 +47006,7 @@ angular.module("tracker/new-climb.tpl.html", []).run(["$templateCache", function
 
 angular.module("tracker/tracker.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("tracker/tracker.tpl.html",
-    "<div screensaver></div>\n" +
+    "<div screensaver state=\"state\"></div>\n" +
     "<div class=\"relative col-md-12\">\n" +
     "  <div ng-if=\"state=='begin'\">\n" +
     "    <div class=\"row\">\n" +
