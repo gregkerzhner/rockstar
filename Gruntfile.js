@@ -89,8 +89,8 @@ module.exports = function(grunt) {
       development: {
         'options': {
           'data': {
-            'stylesheet': "/styles.css",
-            'javascript':'/rockstar.js'
+            'stylesheet': "rockstar/styles.css",
+            'javascript':'rockstar/rockstar.js'
           }
         },
         'files': {

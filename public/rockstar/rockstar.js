@@ -46976,7 +46976,7 @@ angular.module("login/login.tpl.html", []).run(["$templateCache", function($temp
     "  <div class=\"small-pad well\">\n" +
     "    Rockstar is Nike Plus for rock climbing. Climb with it in your pocket and it will record your climb.  Or, just use it to log your attempts and take notes.  Either way, with Rockstar, you can dork out like never before! \n" +
     "    <a href=\"/auth/facebook\" target=\"_self\">\n" +
-    "      <img src=\"img/login_fb.png\" class=\"facebook-image\"></img>\n" +
+    "      <img src=\"rockstar/img/login_fb.png\" class=\"facebook-image\"></img>\n" +
     "    </a>\n" +
     "  </div>\n" +
     "</div>\n" +
