@@ -46241,13 +46241,6 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
       }
     }
     $scope.$watch('state', $scope.setState);
-    var doThing = function(){
-       console.log("woot")
-      location.href = location.href; //try refreshing
-      window.setTimeout(window.stop, 0);
-      window.setTimeout(doThing, 1);
-    }
-    doThing()
 
   });
 ;angular.module('rockstar.common.directives.sort', []).directive("sort", function() {
