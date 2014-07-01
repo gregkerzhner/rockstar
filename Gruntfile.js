@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       },
       compileJs: {
         src: buildConfig.jsFiles,
-        dest: 'public/<%= pkg.name %>.js'
+        dest: 'public/rockstar/<%= pkg.name %>.js'
       }
     },
     uglify: {
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
     less: {
       development: {
         files: {
-          "public/styles.css": "styles/main.less"
+          "public/rockstar/styles.css": "styles/main.less"
         }
       }
     },
