@@ -4,23 +4,20 @@ angular.module('rockstar.dashboard', [
 ])
   .config(function ($stateProvider) {
     $stateProvider
-      .state('rockstar.dashboard-container.dashboard', {
-        url: '',
+      .state('rockstar.dashboard', {
+        url: '/dashboard',
         views: {
-          'header': {
-            templateUrl: 'common/layout/header.tpl.html',
-            controller: 'HeaderController'
-          },
-          'sidebar':{
-            templateUrl: 'common/layout/sidebar.tpl.html',
-            controller: 'SidebarController'
-          },
-          '':{
-            template: '<div ui-view="content"></div>'
+          'content': {
+            templateUrl: 'dashboard/dashboard.tpl.html',
+            controller: "DashboardController"
           }
-        }        
+        }      
       })
     ;
   })
+  .controller('DashboardController', function ($scope) {
+
+  })
+  
 
 ;

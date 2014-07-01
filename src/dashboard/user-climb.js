@@ -6,7 +6,7 @@ angular.module('rockstar.dashboard.user-climb', [
 ])
   .config(function ($stateProvider) {
     $stateProvider
-      .state('rockstar.dashboard-container.dashboard.user-climb', {
+      .state('rockstar.dashboard.user-climb', {
         url: '/user-climb/:user_climb_id',
         views:{
           'content':{

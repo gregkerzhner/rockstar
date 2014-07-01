@@ -1,4 +1,4 @@
-angular.module('templates-main', ['common/directives/3dplot.tpl.html', 'common/directives/spinner.tpl.html', 'common/layout/header.tpl.html', 'common/layout/sidebar.tpl.html', 'dashboard/attempt.tpl.html', 'dashboard/dashboard-container.tpl.html', 'dashboard/user-climb.tpl.html', 'dashboard/user-climbs.tpl.html', 'login/login.tpl.html', 'tracker/new-climb.tpl.html', 'tracker/tracker.tpl.html']);
+angular.module('templates-main', ['common/directives/3dplot.tpl.html', 'common/directives/spinner.tpl.html', 'common/layout/header.tpl.html', 'common/layout/sidebar.tpl.html', 'dashboard/attempt.tpl.html', 'dashboard/dashboard-container.tpl.html', 'dashboard/dashboard.tpl.html', 'dashboard/user-climb.tpl.html', 'dashboard/user-climbs.tpl.html', 'login/login.tpl.html', 'tracker/new-climb.tpl.html', 'tracker/tracker.tpl.html']);
 
 angular.module("common/directives/3dplot.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("common/directives/3dplot.tpl.html",
@@ -101,6 +101,17 @@ angular.module("dashboard/dashboard-container.tpl.html", []).run(["$templateCach
     "  <div ui-view></div>");
 }]);
 
+angular.module("dashboard/dashboard.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("dashboard/dashboard.tpl.html",
+    "<!--<div ui-view=\"header\"></div>\n" +
+    "<div ui-view=\"sidebar\"></div>\n" +
+    "\n" +
+    "-->\n" +
+    "<div ng-include=\"'common/layout/header.tpl.html'\" ng-controller=\"HeaderController\"></div>\n" +
+    "<div ng-include=\"'common/layout/sidebar.tpl.html'\" ng-controller=\"SidebarController\"></div>\n" +
+    "<div ui-view=\"content\"></div>");
+}]);
+
 angular.module("dashboard/user-climb.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/user-climb.tpl.html",
     "<div class=\"col-md-10\">\n" +
@@ -114,12 +125,12 @@ angular.module("dashboard/user-climb.tpl.html", []).run(["$templateCache", funct
     "		<tr ng-repeat=\"attempt in attempts\" class=\"small-pad\">\n" +
     "      <td></td>\n" +
     "      <td>\n" +
-    "        <a ui-sref=\"rockstar.dashboard-container.dashboard.attempt({ user_climb_id: userClimbId,\n" +
+    "        <a ui-sref=\"rockstar.dashboard.attempt({ user_climb_id: userClimbId,\n" +
     "        attempt_id: attempt._id\n" +
     "        })\">{{attempt.number}}</a>\n" +
     "      </td>\n" +
     "      <td>        \n" +
-    "        <a ui-sref=\"rockstar.dashboard-container.dashboard.attempt({ user_climb_id: userClimbId,\n" +
+    "        <a ui-sref=\"rockstar.dashboard.attempt({ user_climb_id: userClimbId,\n" +
     "        attempt_id: attempt._id\n" +
     "        })\">{{attempt.date}}</a>\n" +
     "      </td>\n" +
@@ -145,10 +156,10 @@ angular.module("dashboard/user-climbs.tpl.html", []).run(["$templateCache", func
     "        class=\"small-pad\">\n" +
     "			<td></td>\n" +
     "			<td>\n" +
-    "	    	<a ui-sref=\"rockstar.dashboard-container.dashboard.user-climb({ user_climb_id: userClimb._id})\">{{userClimb.climb.name}}</a>\n" +
+    "	    	<a ui-sref=\"rockstar.dashboard.user-climb({ user_climb_id: userClimb._id})\">{{userClimb.climb.name}}</a>\n" +
     "	    </td>\n" +
     "	    <td>\n" +
-    "	    	<a href=\"rockstar.dashboard-container.dashboard.user-climb({ user_climb_id: userClimb._id})\">{{userClimb.area.name}}</a>\n" +
+    "	    	<a href=\"rockstar.dashboard.user-climb({ user_climb_id: userClimb._id})\">{{userClimb.area.name}}</a>\n" +
     "	    </td>\n" +
     "	  </tr>\n" +
     "  </table>\n" +

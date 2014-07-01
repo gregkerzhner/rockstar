@@ -5,8 +5,12 @@ angular.module('rockstar.login', [
     $stateProvider
       .state('rockstar.login', {
         url: '/login',
-        templateUrl: 'login/login.tpl.html',
-        controller: 'LoginController'
+        views: {
+          'content': {
+            templateUrl: 'login/login.tpl.html',
+            controller: 'LoginController'
+          }
+        }
       })
     ;
   })

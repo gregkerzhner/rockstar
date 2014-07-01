@@ -30,9 +30,6 @@ module.exports = function(grunt) {
       }
     },
     html2js: {
-      options: {
-        // custom options, see below
-      },
       main: {
         src: ['src/**/*.tpl.html'],
         dest: 'tmp/templates.js'

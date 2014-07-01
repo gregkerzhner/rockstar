@@ -9,8 +9,12 @@ angular.module('rockstar.tracker', [
     $stateProvider
       .state('rockstar.tracker', {
         url: '/tracker',
-        templateUrl: 'tracker/tracker.tpl.html',
-        controller: 'TrackerController'
+        views: {
+          'content':{
+            templateUrl: 'tracker/tracker.tpl.html',
+            controller: 'TrackerController'
+          }
+        }
       })
     ;
   })
@@ -53,7 +57,7 @@ angular.module('rockstar.tracker', [
 
     $scope.saveClimb = function(){
       $scope.attempt.save().then(function(res){
-        $state.go("rockstar.dashboard-container.dashboard.attempt",
+        $state.go("rockstar.dashboard.attempt",
           {user_climb_id: res.data.userClimb,
            attempt_id: res.data._id
           }

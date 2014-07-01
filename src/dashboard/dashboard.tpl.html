@@ -1,0 +1,7 @@
+<!--<div ui-view="header"></div>
+<div ui-view="sidebar"></div>
+
+-->
+<div ng-include="'common/layout/header.tpl.html'" ng-controller="HeaderController"></div>
+<div ng-include="'common/layout/sidebar.tpl.html'" ng-controller="SidebarController"></div>
+<div ui-view="content"></div>

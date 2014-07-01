@@ -9,12 +9,12 @@
 		<tr ng-repeat="attempt in attempts" class="small-pad">
       <td></td>
       <td>
-        <a ui-sref="rockstar.dashboard-container.dashboard.attempt({ user_climb_id: userClimbId,
+        <a ui-sref="rockstar.dashboard.attempt({ user_climb_id: userClimbId,
         attempt_id: attempt._id
         })">{{attempt.number}}</a>
       </td>
       <td>        
-        <a ui-sref="rockstar.dashboard-container.dashboard.attempt({ user_climb_id: userClimbId,
+        <a ui-sref="rockstar.dashboard.attempt({ user_climb_id: userClimbId,
         attempt_id: attempt._id
         })">{{attempt.date}}</a>
       </td>

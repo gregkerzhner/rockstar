@@ -46000,7 +46000,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
     'rockstar.login',
     'rockstar.common.services.current-user',
     'rockstar.header',
-    'rockstar.dashboard-container',
+    'rockstar.dashboard',
     'rockstar.dashboard.user-climbs',
     'rockstar.dashboard.user-climb',
     'rockstar.dashboard.attempt',
@@ -46013,14 +46013,10 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
     $stateProvider
       .state('rockstar', {
         url: '',
-        views: {
-          'content':{
-            template: '<div ui-view></div>'
-          }
-        }
+        template: '<div ui-view="content"></div>',
+        abstract: true
       })
     ;
-
     $httpProvider.responseInterceptors.push(function($q, $location, $injector) { 
       return function(promise) { 
         return promise.then( 
@@ -46280,9 +46276,9 @@ return {
   })
 ;
 ;angular.module('rockstar.dashboard.sidebar', [
-  'ui.router',
-  'rockstar.common.services.current-user'
+  
 ])
+
   .controller('SidebarController', function SidebarController($scope, userClimbs) {
 
   })
@@ -46511,7 +46507,7 @@ angular.module('geolocation')
 ])
   .config(function ($stateProvider) {
     $stateProvider
-      .state('rockstar.dashboard-container.dashboard.attempt', {
+      .state('rockstar.dashboard.attempt', {
         url: '/user-climb/:user_climb_id/attempt/:attempt_id',
         views:{
           'content':{
@@ -46541,7 +46537,7 @@ angular.module('geolocation')
   .config(function ($stateProvider) {
     $stateProvider
       .state('rockstar.dashboard-container', {
-        url: '/dashboard',
+        //url: '/dashboard',
         templateUrl: 'dashboard/dashboard-container.tpl.html',
         controller: 'DashboardController',
         abstract: true
@@ -46559,24 +46555,21 @@ angular.module('geolocation')
 ])
   .config(function ($stateProvider) {
     $stateProvider
-      .state('rockstar.dashboard-container.dashboard', {
-        url: '',
+      .state('rockstar.dashboard', {
+        url: '/dashboard',
         views: {
-          'header': {
-            templateUrl: 'common/layout/header.tpl.html',
-            controller: 'HeaderController'
-          },
-          'sidebar':{
-            templateUrl: 'common/layout/sidebar.tpl.html',
-            controller: 'SidebarController'
-          },
-          '':{
-            template: '<div ui-view="content"></div>'
+          'content': {
+            templateUrl: 'dashboard/dashboard.tpl.html',
+            controller: "DashboardController"
           }
-        }        
+        }      
       })
     ;
   })
+  .controller('DashboardController', function ($scope) {
+
+  })
+  
 
 ;
 ;angular.module('rockstar.dashboard.user-climb', [
@@ -46587,7 +46580,7 @@ angular.module('geolocation')
 ])
   .config(function ($stateProvider) {
     $stateProvider
-      .state('rockstar.dashboard-container.dashboard.user-climb', {
+      .state('rockstar.dashboard.user-climb', {
         url: '/user-climb/:user_climb_id',
         views:{
           'content':{
@@ -46633,7 +46626,7 @@ angular.module('geolocation')
 ])
   .config(function ($stateProvider) {
     $stateProvider
-      .state('rockstar.dashboard-container.dashboard.user-climbs', {
+      .state('rockstar.dashboard.user-climbs', {
         url: '/user-climbs',
         views:{
           'content':{
@@ -46675,8 +46668,12 @@ angular.module('geolocation')
     $stateProvider
       .state('rockstar.login', {
         url: '/login',
-        templateUrl: 'login/login.tpl.html',
-        controller: 'LoginController'
+        views: {
+          'content': {
+            templateUrl: 'login/login.tpl.html',
+            controller: 'LoginController'
+          }
+        }
       })
     ;
   })
@@ -46726,8 +46723,12 @@ angular.module('geolocation')
     $stateProvider
       .state('rockstar.tracker', {
         url: '/tracker',
-        templateUrl: 'tracker/tracker.tpl.html',
-        controller: 'TrackerController'
+        views: {
+          'content':{
+            templateUrl: 'tracker/tracker.tpl.html',
+            controller: 'TrackerController'
+          }
+        }
       })
     ;
   })
@@ -46770,7 +46771,7 @@ angular.module('geolocation')
 
     $scope.saveClimb = function(){
       $scope.attempt.save().then(function(res){
-        $state.go("rockstar.dashboard-container.dashboard.attempt",
+        $state.go("rockstar.dashboard.attempt",
           {user_climb_id: res.data.userClimb,
            attempt_id: res.data._id
           }
@@ -46781,7 +46782,7 @@ angular.module('geolocation')
     $scope.getAccuracy();
   })
 ;
-;angular.module('templates-main', ['common/directives/3dplot.tpl.html', 'common/directives/spinner.tpl.html', 'common/layout/header.tpl.html', 'common/layout/sidebar.tpl.html', 'dashboard/attempt.tpl.html', 'dashboard/dashboard-container.tpl.html', 'dashboard/user-climb.tpl.html', 'dashboard/user-climbs.tpl.html', 'login/login.tpl.html', 'tracker/new-climb.tpl.html', 'tracker/tracker.tpl.html']);
+;angular.module('templates-main', ['common/directives/3dplot.tpl.html', 'common/directives/spinner.tpl.html', 'common/layout/header.tpl.html', 'common/layout/sidebar.tpl.html', 'dashboard/attempt.tpl.html', 'dashboard/dashboard-container.tpl.html', 'dashboard/dashboard.tpl.html', 'dashboard/user-climb.tpl.html', 'dashboard/user-climbs.tpl.html', 'login/login.tpl.html', 'tracker/new-climb.tpl.html', 'tracker/tracker.tpl.html']);
 
 angular.module("common/directives/3dplot.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("common/directives/3dplot.tpl.html",
@@ -46884,6 +46885,17 @@ angular.module("dashboard/dashboard-container.tpl.html", []).run(["$templateCach
     "  <div ui-view></div>");
 }]);
 
+angular.module("dashboard/dashboard.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("dashboard/dashboard.tpl.html",
+    "<!--<div ui-view=\"header\"></div>\n" +
+    "<div ui-view=\"sidebar\"></div>\n" +
+    "\n" +
+    "-->\n" +
+    "<div ng-include=\"'common/layout/header.tpl.html'\" ng-controller=\"HeaderController\"></div>\n" +
+    "<div ng-include=\"'common/layout/sidebar.tpl.html'\" ng-controller=\"SidebarController\"></div>\n" +
+    "<div ui-view=\"content\"></div>");
+}]);
+
 angular.module("dashboard/user-climb.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/user-climb.tpl.html",
     "<div class=\"col-md-10\">\n" +
@@ -46897,12 +46909,12 @@ angular.module("dashboard/user-climb.tpl.html", []).run(["$templateCache", funct
     "		<tr ng-repeat=\"attempt in attempts\" class=\"small-pad\">\n" +
     "      <td></td>\n" +
     "      <td>\n" +
-    "        <a ui-sref=\"rockstar.dashboard-container.dashboard.attempt({ user_climb_id: userClimbId,\n" +
+    "        <a ui-sref=\"rockstar.dashboard.attempt({ user_climb_id: userClimbId,\n" +
     "        attempt_id: attempt._id\n" +
     "        })\">{{attempt.number}}</a>\n" +
     "      </td>\n" +
     "      <td>        \n" +
-    "        <a ui-sref=\"rockstar.dashboard-container.dashboard.attempt({ user_climb_id: userClimbId,\n" +
+    "        <a ui-sref=\"rockstar.dashboard.attempt({ user_climb_id: userClimbId,\n" +
     "        attempt_id: attempt._id\n" +
     "        })\">{{attempt.date}}</a>\n" +
     "      </td>\n" +
@@ -46928,10 +46940,10 @@ angular.module("dashboard/user-climbs.tpl.html", []).run(["$templateCache", func
     "        class=\"small-pad\">\n" +
     "			<td></td>\n" +
     "			<td>\n" +
-    "	    	<a ui-sref=\"rockstar.dashboard-container.dashboard.user-climb({ user_climb_id: userClimb._id})\">{{userClimb.climb.name}}</a>\n" +
+    "	    	<a ui-sref=\"rockstar.dashboard.user-climb({ user_climb_id: userClimb._id})\">{{userClimb.climb.name}}</a>\n" +
     "	    </td>\n" +
     "	    <td>\n" +
-    "	    	<a href=\"rockstar.dashboard-container.dashboard.user-climb({ user_climb_id: userClimb._id})\">{{userClimb.area.name}}</a>\n" +
+    "	    	<a href=\"rockstar.dashboard.user-climb({ user_climb_id: userClimb._id})\">{{userClimb.area.name}}</a>\n" +
     "	    </td>\n" +
     "	  </tr>\n" +
     "  </table>\n" +

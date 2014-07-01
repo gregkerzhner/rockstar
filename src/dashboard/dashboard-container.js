@@ -6,7 +6,7 @@ angular.module('rockstar.dashboard-container', [
   .config(function ($stateProvider) {
     $stateProvider
       .state('rockstar.dashboard-container', {
-        url: '/dashboard',
+        //url: '/dashboard',
         templateUrl: 'dashboard/dashboard-container.tpl.html',
         controller: 'DashboardController',
         abstract: true

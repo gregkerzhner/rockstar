@@ -4,7 +4,7 @@ angular.module('rockstar', [
     'rockstar.login',
     'rockstar.common.services.current-user',
     'rockstar.header',
-    'rockstar.dashboard-container',
+    'rockstar.dashboard',
     'rockstar.dashboard.user-climbs',
     'rockstar.dashboard.user-climb',
     'rockstar.dashboard.attempt',
@@ -17,14 +17,10 @@ angular.module('rockstar', [
     $stateProvider
       .state('rockstar', {
         url: '',
-        views: {
-          'content':{
-            template: '<div ui-view></div>'
-          }
-        }
+        template: '<div ui-view="content"></div>',
+        abstract: true
       })
     ;
-
     $httpProvider.responseInterceptors.push(function($q, $location, $injector) { 
       return function(promise) { 
         return promise.then( 
