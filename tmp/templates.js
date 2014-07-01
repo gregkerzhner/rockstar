@@ -7,7 +7,7 @@ angular.module("common/directives/3dplot.tpl.html", []).run(["$templateCache", f
 
 angular.module("common/directives/screensaver.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("common/directives/screensaver.tpl.html",
-    "<audio id=\"audio\" controls onended=\"this.play();\" src=\"http://www.culturebully.com/wp-content/uploads/2011/04/01%20-%20Girl%20Talk%20-%20What%20It%27s%20All%20About.mp3\" class=\"hide\"></audio>");
+    "<audio id=\"audio\" controls=\"controls\" onended=\"this.play();\" src=\"http://www.culturebully.com/wp-content/uploads/2011/04/01%20-%20Girl%20Talk%20-%20What%20It%27s%20All%20About.mp3\"  autobuffer></audio>");
 }]);
 
 angular.module("common/directives/spinner.tpl.html", []).run(["$templateCache", function($templateCache) {
