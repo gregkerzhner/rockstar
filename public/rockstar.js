@@ -46221,7 +46221,21 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
     }  
 
     $scope.$watch('points', $scope.draw)   
-  });;angular.module('rockstar.common.directives.sort', []).directive("sort", function() {
+  });;angular.module('rockstar.common.directives.screensaver', [
+
+  ])
+  .directive('screensaver', function(){
+    return {
+      restrict: "A",
+      controller: "ScreensaverController",
+      templateUrl: 'common/directives/screensaver.tpl.html'
+    }
+  })
+  .controller('ScreensaverController', function($scope, $element, geolocation){
+    alert("hello from screensaver");
+
+  });
+;angular.module('rockstar.common.directives.sort', []).directive("sort", function() {
 return {
     restrict: 'A',
     transclude: true,
@@ -46717,7 +46731,8 @@ angular.module('geolocation')
   'rockstar.common.services.user-climbs',
   'rockstar.common.services.climbs',
   'rockstar.common.services.attempt',
-  'rockstar.common.directives.spinner'
+  'rockstar.common.directives.spinner',
+  'rockstar.common.directives.screensaver'
 ])
   .config(function ($stateProvider) {
     $stateProvider
@@ -46782,11 +46797,16 @@ angular.module('geolocation')
     $scope.getAccuracy();
   })
 ;
-;angular.module('templates-main', ['common/directives/3dplot.tpl.html', 'common/directives/spinner.tpl.html', 'common/layout/header.tpl.html', 'common/layout/sidebar.tpl.html', 'dashboard/attempt.tpl.html', 'dashboard/dashboard-container.tpl.html', 'dashboard/dashboard.tpl.html', 'dashboard/user-climb.tpl.html', 'dashboard/user-climbs.tpl.html', 'login/login.tpl.html', 'tracker/new-climb.tpl.html', 'tracker/tracker.tpl.html']);
+;angular.module('templates-main', ['common/directives/3dplot.tpl.html', 'common/directives/screensaver.tpl.html', 'common/directives/spinner.tpl.html', 'common/layout/header.tpl.html', 'common/layout/sidebar.tpl.html', 'dashboard/attempt.tpl.html', 'dashboard/dashboard-container.tpl.html', 'dashboard/dashboard.tpl.html', 'dashboard/user-climb.tpl.html', 'dashboard/user-climbs.tpl.html', 'login/login.tpl.html', 'tracker/new-climb.tpl.html', 'tracker/tracker.tpl.html']);
 
 angular.module("common/directives/3dplot.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("common/directives/3dplot.tpl.html",
     "{{attempt}}");
+}]);
+
+angular.module("common/directives/screensaver.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("common/directives/screensaver.tpl.html",
+    "<audio controls autoplay loop src=\"http://www.culturebully.com/wp-content/uploads/2011/04/01%20-%20Girl%20Talk%20-%20What%20It%27s%20All%20About.mp3\" class=\"hide\"></audio>");
 }]);
 
 angular.module("common/directives/spinner.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -46978,8 +46998,7 @@ angular.module("tracker/new-climb.tpl.html", []).run(["$templateCache", function
 
 angular.module("tracker/tracker.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("tracker/tracker.tpl.html",
-    "<audio controls autoplay loop src=\"http://www.sousound.com/music/healing/healing_01.mp3\" class=\"hide\"></audio>\n" +
-    "\n" +
+    "<div screensaver></div>\n" +
     "<div class=\"relative col-md-12\">\n" +
     "  <div ng-if=\"state=='begin'\">\n" +
     "    <div class=\"row\">\n" +
